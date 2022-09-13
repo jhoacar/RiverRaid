@@ -1,0 +1,17 @@
+version: '3'
+services:
+  river_raid:
+    # build: 
+    #   context: '.'
+    #   args:
+    #     DISPLAY: $DISPLAY
+    image: ubuntu #river_raid 
+    container_name: river_raid
+    working_dir: /app
+    command: bash -c "apt-get update && apt-get install -y firefox && /usr/bin/firefox"
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: $DISPLAY
+    network_mode: host
