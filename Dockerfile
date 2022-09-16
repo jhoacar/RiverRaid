@@ -2,7 +2,14 @@ FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install -y \
     default-jdk \
+    maven \
     sudo
+
+ENV JAVA_HOME=/usr/lib/jvm/default-java
+ENV M2_HOME=/opt/maven
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=${M2_HOME}/bin:${PATH}
+
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
@@ -13,9 +20,11 @@ RUN export uid=1000 gid=1000 && \
     chmod 0440 /etc/sudoers.d/developer && \
     chown ${uid}:${gid} -R /home/developer
 
+
+
 USER developer
 ENV HOME /home/developer
 CMD tail -f /dev/null
 
 # docker build -t java:ubuntu
-# docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd):/app java:ubuntu bash
+# docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd):/app -w /app java:ubuntu bash
