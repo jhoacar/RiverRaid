@@ -72,7 +72,7 @@ public final class MenuPrincipal extends JPanel {
     private String nombre;
     private int tiempo;
 
-    private final JComboBox<String[]> PedirTiempo;
+    private final JComboBox<String> PedirTiempo;
     private final JButton comenzarjuego;
 
     /**
@@ -166,7 +166,7 @@ public final class MenuPrincipal extends JPanel {
 
         final String tiempos[] = { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "110", "120" };
 
-        PedirTiempo = new JComboBox(tiempos);
+        PedirTiempo = new JComboBox<String>(tiempos);
         PedirTiempo.setMaximumRowCount(5);
         PedirTiempo.setBounds(50, 200, 150, 25);
         PedirTiempo.setFont(Personajes.FUENTE.deriveFont((float) 20));
