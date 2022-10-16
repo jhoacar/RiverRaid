@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jugador;
+package com.river_raid.jugador;
 
-import global.Objeto;
-import global.Personajes;
-import javax.swing.ImageIcon;
+import com.river_raid.global.CargarImagen;
+import com.river_raid.global.Objeto;
+import com.river_raid.global.Personajes;
 
 /**
  *
@@ -16,22 +16,20 @@ import javax.swing.ImageIcon;
 /**
  * Clase combustible la cual le permite al jugador seguirse moviendo
  */
-public class Combustible extends Objeto implements Personajes{
-    
-    
+public class Combustible extends Objeto implements Personajes {
+
     /**
      * Constructor que inicia las variables y le da imagen al combustible
      */
-    public Combustible()
-    {
+    public Combustible() {
         super();
-        imagen = new ImageIcon("src/recursos/ambiente/Combustible.jpg").getImage();
+        imagen = CargarImagen.loadImage("ambiente/Combustible.jpg");
     }
+
     @Override
-    public void explosion()
-    {
-        if(!vivo)
-        imagen = new ImageIcon("src/recursos/ambiente/Explosion Combustible.jpg").getImage();
+    public void explosion() {
+        if (!vivo)
+            imagen = CargarImagen.loadImage("ambiente/Explosion Combustible.jpg");
     }
-    
+
 }

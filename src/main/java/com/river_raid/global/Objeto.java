@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package global;
+package com.river_raid.global;
 
 import java.awt.Image;
 import java.awt.geom.Rectangle2D;
@@ -31,7 +31,6 @@ public abstract class Objeto {
         posx=0;
         posy=0;
         vivo=true;
-        
     }
     /**
      * Metodo para devolver las posiciones en x 

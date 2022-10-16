@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package global;
+package com.river_raid.global;
 
 import java.awt.Color;
 import java.awt.Font;

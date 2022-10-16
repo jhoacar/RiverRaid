@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package enemigos;
+package com.river_raid.enemigos;
 
-import global.Personajes;
-import javax.swing.ImageIcon;
-
+import com.river_raid.global.CargarImagen;
 
 /**
  *
@@ -15,56 +13,50 @@ import javax.swing.ImageIcon;
  */
 
 /**
-*Clase helicoptero que es un enemigo en el juego para el jugador  
-**/
-public class Helicoptero extends Enemigos implements Personajes{
-     /**
-     * Constructor parametrico de la clase helicoptero, inicializa las variables y le da una imagen 
-     * @param x posicion en x del enemigo
-     * @param y posicion en y del enemigo
+ * Clase helicoptero que es un enemigo en el juego para el jugador
+ **/
+public class Helicoptero extends Enemigos {
+    /**
+     * Constructor parametrico de la clase helicoptero, inicializa las variables y
+     * le da una imagen
+     * 
+     * @param x         posicion en x del enemigo
+     * @param y         posicion en y del enemigo
      * @param direccion derecha o izquierda
      */
-    public Helicoptero(int x,int y,boolean direccion)
-    {
-        super(x,y,direccion);
-        
-        if(direccion)
-            imagen = new ImageIcon("src/recursos/enemigos/Helicoptero Derecha.jpg").getImage();
+    public Helicoptero(int x, int y, boolean direccion) {
+        super(x, y, direccion);
+
+        if (direccion)
+            imagen = CargarImagen.loadImage("enemigos/Helicoptero Derecha.jpg");
         else
-            imagen = new ImageIcon("src/recursos/enemigos/Helicoptero Izquierda.jpg").getImage();
+            imagen = CargarImagen.loadImage("enemigos/Helicoptero Izquierda.jpg");
     }
-    
+
     @Override
-    public void moverx(int velocidad,int BORDE_IZQUIERDO,int BORDE_DERECHO){
-        
-        if(direccion)
-        {
-            if(posx+velocidad>=BORDE_DERECHO-imagen.getWidth(null))
-            {
-                direccion=false;
-                imagen = new ImageIcon("src/recursos/enemigos/Helicoptero Izquierda.jpg").getImage();
-                
-            }
-            else
-                posx+=velocidad;
+    public void moverx(int velocidad, int BORDE_IZQUIERDO, int BORDE_DERECHO) {
+
+        if (direccion) {
+            if (posx + velocidad >= BORDE_DERECHO - imagen.getWidth(null)) {
+                direccion = false;
+                imagen = CargarImagen.loadImage("enemigos/Helicoptero Izquierda.jpg");
+
+            } else
+                posx += velocidad;
+        } else {
+            if (posx - velocidad <= BORDE_IZQUIERDO) {
+                direccion = true;
+                imagen = CargarImagen.loadImage("enemigos/Helicoptero Derecha.jpg");
+            } else
+                posx -= velocidad;
         }
-        else
-        {
-            if(posx-velocidad<=BORDE_IZQUIERDO)
-            {
-                direccion=true;
-                imagen = new ImageIcon("src/recursos/enemigos/Helicoptero Derecha.jpg").getImage();
-            }
-            else
-            posx-=velocidad;
-        }
-        
+
     }
 
     @Override
     public void explosion() {
-            if(!vivo)
-            imagen = new ImageIcon("src/recursos/enemigos/Explosion Helicoptero.jpg").getImage();
+        if (!vivo)
+            imagen = CargarImagen.loadImage("enemigos/Explosion Helicoptero.jpg");
     }
-    
+
 }

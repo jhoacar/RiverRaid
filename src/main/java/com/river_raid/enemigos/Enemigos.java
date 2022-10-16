@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package enemigos;
+package com.river_raid.enemigos;
 
-import global.Objeto;
-import global.Personajes;
+import com.river_raid.global.Objeto;
+import com.river_raid.global.Personajes;
 
 /**
  *

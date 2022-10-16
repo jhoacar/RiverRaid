@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jugador;
+package com.river_raid.jugador;
 
-import global.Objeto;
+import com.river_raid.global.CargarImagen;
+import com.river_raid.global.Objeto;
 import java.awt.Point;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,27 +16,27 @@ import javax.swing.ImageIcon;
 /**
  * Clase bala la cual es la encargada de destruir los enemigos
  */
-public class Bala extends Objeto{
-    
-    
+public class Bala extends Objeto {
+
     /**
-     * Constructor encarcagado de iniciar las variables y asignarle una imagen a la bala
+     * Constructor encarcagado de iniciar las variables y asignarle una imagen a la
+     * bala
      */
-    public Bala()
-    {
+    public Bala() {
         super();
-        imagen = new ImageIcon("src/recursos/jugador/Bala.jpg").getImage();
-        
+        imagen = CargarImagen.loadImage("jugador/Bala.jpg");
+
     }
+
     /**
      * Constructor paramatricamente que posiciona la bala
+     * 
      * @param posicion_bala punto en x e y donde ubicara la bala
      */
-    public Bala(Point posicion_bala)
-    {
-        posx=posicion_bala.x;
-        posy=posicion_bala.y;
-        vivo=true;
-        imagen = new ImageIcon("src/recursos/jugador/Bala.jpg").getImage();
+    public Bala(Point posicion_bala) {
+        posx = posicion_bala.x;
+        posy = posicion_bala.y;
+        vivo = true;
+        imagen = CargarImagen.loadImage("jugador/Bala.jpg");
     }
 }

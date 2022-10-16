@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package graficos;
+package com.river_raid.graficos;
 
-import global.Personajes;
+import com.river_raid.global.Personajes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
